@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3- Logique de jeu</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#logique-de-jeu">3. Logique de jeu</a></li>
+<li><a href="#rafraîchir-une-fenêtre-et-déplacer-une-image">3.1. Rafraîchir une fenêtre et déplacer une image</a></li>
+<li><a href="#garder-loiseau-à-lécran">3.2. Garder l’oiseau à l’écran</a>
+<ul>
+<li><a href="#a.-sauvez-loiseau-">3.2.a. Sauvez l’oiseau !</a></li>
+<li><a href="#b.-randez-loiseau-plus-vivant-">3.2.b. RAND(ez) l’oiseau plus vivant !</a></li>
+</ul>
+</li>
+<li><a href="#interagir-avec-le-jeu">3.3. Interagir avec le jeu</a>
+<ul>
+<li><a href="#a.-maintenant-tuez-le.">3.3.A. Maintenant, tuez le.</a></li>
+<li><a href="#b.-et-le-score-dans-tout-ça-">3.3.B. Et le score dans tout ça ?</a></li>
+</ul>
+</li>
+<li><a href="#lui-laisser-une-chance-">3.4. Lui laisser une chance ?</a></li>
+<li><a href="#pour-aller-plus-loin">3.5. Pour aller plus loin</a>
+<ul>
+<li><a href="#interagir-avec-le-clavier">Interagir avec le clavier</a></li>
+<li><a href="#avec-la-souris">Avec la souris</a></li>
+<li><a href="#utiliser-du-son">Utiliser du son</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="logique-de-jeu">3. Logique de jeu</h1>
+<hr>
+<p><a href="2.html">← Précédent</a> • <a href="index.html">⌂ Menu</a> • <s>Suite →</s></p>
+<h1 id="rafraîchir-une-fenêtre-et-déplacer-une-image">3.1. Rafraîchir une fenêtre et déplacer une image</h1>
+<p>Maintenant que vous savez afficher <s>un sprite animé</s> une image et un fond, pourquoi ne pas tenter de le faire avancer ?</p>
+<p><strong>Ajoutez</strong> ces lignes dans votre programme juste avant votre “show”:</p>
+<pre class=" language-ruby"><code class="prism  language-ruby">update <span class="token keyword">do</span> <span class="token comment"># update permet de rafraichir la fenêtre</span>
+
+  <span class="token keyword">if</span> tick <span class="token operator">%</span> <span class="token number">10</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token comment"># on vérifie qu'il y a eu 10 images d'affichées avant d'actualiser</span>
+	  bird<span class="token punctuation">.</span>x <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">10</span> <span class="token comment"># on fait avancer l'oiseau de 10 pixels</span>
+  <span class="token keyword">end</span> <span class="token comment"># fin du if</span>
+
+  tick <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span> <span class="token comment"># on incremente le nombre d'image affichées</span>
+<span class="token keyword">end</span> <span class="token comment"># fin du do</span>
+</code></pre>
+<p>Cette boucle permet de faire avancer votre oiseau de 10 pixels horizontalement (sur l’axe x) toutes les 10 images affichées.</p>
+<p>Et si vous tentiez de modifier cette valeur pour voir comment se comporte l’oiseau ?</p>
+<blockquote>
+<p>Bonus: En modifiant bird.y également vous pouvez lui donner des trajectoire diagonales !</p>
+</blockquote>
+<h1 id="garder-loiseau-à-lécran">3.2. Garder l’oiseau à l’écran</h1>
+<h2 id="a.-sauvez-loiseau-">3.2.a. Sauvez l’oiseau !</h2>
+<p>Dans votre version actuelle l’oiseau traverse l’écran et disparaît à jamais…c’est triste. Ceci est dû au fait que l’oiseau ne s’arrête jamais, il continue donc à avancer mais hors de notre vue, pour l’éternité.</p>
+<p>Pour éviter cela, il faut ajouter une condition tel que lorsque l’oiseau sort de la fenêtre, on le replace au début de notre axe x.</p>
+<blockquote>
+<p>Astuce: au lieu d’augmenter la valeur de bird.x vous pouvez lui attribuer directement une valeur comme à n’importe quelle variable</p>
+</blockquote>
+<h2 id="b.-randez-loiseau-plus-vivant-">3.2.b. RAND(ez) l’oiseau plus vivant !</h2>
+<p>C’est réussi ?</p>
+<p>SUPER !</p>
+<p>Vous voulez rendre cela plus vivant ? Pourquoi ne pas utiliser la fonction rand() pour le placer à un endroit aléatoire sur l’axe y ?</p>
+<p>Voici comment on utilise la fonction:</p>
+<blockquote>
+<p>rand(NOMBRE_MAXIMUM)</p>
+</blockquote>
+<p>Ainsi, la ligne suivante nous donnera un nombre entier compris entre 0 et 10:</p>
+<pre class=" language-ruby"><code class="prism  language-ruby"><span class="token function">rand</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+</code></pre>
+<p><strong>Faites donc en sorte</strong> que l’oiseau réaparaisse à une hauteur aléatoire à chaque fois qu’il recommence sa traversée de l’écran.</p>
+<p>Jouer avec l’aléatoire peut avoir des résultats surprenant, si le coeur vous en dit faites quelques expériences !</p>
+<h1 id="interagir-avec-le-jeu">3.3. Interagir avec le jeu</h1>
+<h2 id="a.-maintenant-tuez-le.">3.3.A. Maintenant, tuez le.</h2>
+<p>A ce stade vous avez un oiseau qui parcourt l’écran en boucle. C’est sympa mais nous on veut un jeu, pas un gif.</p>
+<p>Ajoutons donc des <strong>interactions</strong> entre le joueur et le jeu !</p>
+<p>En ruby il existe un moyen simple et rapide à mettre en place pour utiliser la souris:</p>
+<pre class=" language-ruby"><code class="prism  language-ruby">on <span class="token symbol">:mouse_down</span> <span class="token keyword">do</span> <span class="token operator">|</span>e<span class="token operator">|</span> <span class="token comment"># si l'utilisateur clique, alors ..                          \</span>
+        <span class="token comment"># on effectue n'importe quelle action que l'on veut</span>
+<span class="token keyword">end</span> <span class="token comment"># fin du do</span>
+</code></pre>
+<p>En utilisant les lignes précédemment données, faites retourner notre oiseau adoré au bord de la fenêtre lorsque vous cliquez n’importe où…</p>
+<hr>
+<p>Une fois que cette tâche est réussie, vous devrez récupérer l’emplacement du clic et vérifier si l’oiseau est bien ciblé par la souris, ceci peut vous aider:</p>
+<pre class=" language-ruby"><code class="prism  language-ruby"><span class="token comment"># ceci permet de récupérer la position exacte de la souris</span>
+mouse_X <span class="token operator">=</span> get <span class="token symbol">:mouse_x</span>
+mouse_Y <span class="token operator">=</span> get <span class="token symbol">:mouse_y</span>
+
+<span class="token comment"># et ceci la position de l'oiseau</span>
+bird_X <span class="token operator">=</span> bird<span class="token punctuation">.</span>x
+bird_Y <span class="token operator">=</span> bird<span class="token punctuation">.</span>y
+</code></pre>
+<blockquote>
+<p>Pour savoir si vous touchez votre pigeon, ne faut pas seulement regarder si votre souris est à la même position en x et en y.<br>
+L’origine de votre pigeon est en effet à bird.x et bird.y mais il s’étend sur plusieurs pixels en abscisses et en ordonnées.<br>
+Voici un exemple, imaginez simplement qu’il y a un pigeon dans le carré :</p>
+<p><img src="http://paris-coding.club/subject/duck-hunt/images/sch%C3%A9ma_carr%C3%A9.png" alt="Carré"></p>
+</blockquote>
+<h2 id="b.-et-le-score-dans-tout-ça-">3.3.B. Et le score dans tout ça ?</h2>
+<p>Maintenant que vous pouvez tuer votre oiseau, il faudrait rendre cela plus gratifiant non ? Ajoutons donc un score !</p>
+<p>Il y a une multitude de moyens de le faire, dans ma grande bonté je vais vous en donner deux mais soyez libres de laisser votre imagination vous guider.</p>
+<h3 id="a.-les-batons">a. Les batons</h3>
+<p>La première méthode dite des bâtonnets consiste à afficher un texte auquel vous ajouterez un <code>|</code> chaque fois que vous touchez l’oiseau. En ruby c’est plutôt simple, mais je vais devoir vous apprendre quelques bricoles d’abord.</p>
+<p>La <mark>concaténation</mark>  est une notion relativement simple, si l’on considère un mot comme une suite de lettres, en “additionant” deux mots grâce à l’opérateur <code>+</code> on peut les coller l’un à la suite de l’autre.</p>
+<pre class=" language-ruby"><code class="prism  language-ruby">variable_inutile_1 <span class="token operator">=</span> <span class="token string">'Bonjou'</span>
+variable_inutile_2 <span class="token operator">=</span> <span class="token string">'r à vous'</span>
+variable_inutile_3 <span class="token operator">=</span> variable_inutile_1 <span class="token operator">+</span> variable_inutile_2
+
+</code></pre>
+<p>La variable_inutile_3 vaut maintenant “Bonjour à vous”, formidable non ?<br>
+Ainsi, en ajoutant <code>|</code> à la variable score à chaque fois que l’oiseau est tué on obtient une barre de score qui s’allonge.</p>
+<h3 id="b.-les-chiffres">b. Les chiffres</h3>
+<p>La seconde qui est peut être la plus connue est également assez simple, il vous suffit de créer une variable contenant un nombre et d’augmenter ce nombre à chaque touche.</p>
+<p>D’autres part, vous pouvez complexifier le calcul des scores en ajoutant dans l’équation, une variable dépendant de la position de l’oiseau.</p>
+<hr>
+<p>Tout ceci est bien joli mais pour que vous puissiez l’afficher il faut d’abord créer une classe de texte, je vous invite à relire la page précédente du sujet si vous avez oublié comment faire.</p>
+<p>Pour mettre à jour ce texte, ne cherchez pas loin, il suffit de faire ça:</p>
+<pre class=" language-ruby"><code class="prism  language-ruby">votre_text<span class="token punctuation">.</span>text <span class="token operator">=</span> <span class="token string">'nouveau texte'</span>
+</code></pre>
+<blockquote>
+<p>Astuce: l’opérateur += fonctionne également sur la ligne précédente</p>
+</blockquote>
+<h1 id="lui-laisser-une-chance-">3.4. Lui laisser une chance ?</h1>
+<p>Vous voilà avec un jeu bien avancé, mais ces pauvres oiseaux se font tirer dessus à la chaîne sans avoir aucune chance de gagner, rajoutons donc une condition de défaite pour leur laisser une chance.</p>
+<p>En modifiant la fonction qui vérifie la position de votre clic et celui de l’oiseau, <strong>ajoutez le cas</strong> où le joueur manque sa cible et faite en sorte qu’au bout de trois échecs le jeu se ferme.</p>
+<blockquote>
+<p>Cette tâche peut être accomplie en ajoutant 5 lignes (pas forcément à la suite) dans votre code</p>
+</blockquote>
+<p>Pour sortir du programme de manière un peu directe, utilisez:</p>
+<pre class=" language-ruby"><code class="prism  language-ruby">close
+</code></pre>
+<p>Une fois ceci accompli, <strong>affichez un texte de défaite</strong> à l’écran et stoppez l’action au lieu de fermer le jeu.</p>
+<h1 id="pour-aller-plus-loin">3.5. Pour aller plus loin</h1>
+<p>Ma foi il me semble que vous avez tout juste fini de coder un duck hunt plutôt pas mal ! GG !</p>
+<p><img src="https://66.media.tumblr.com/6a2532511a92089553eae0c65b1584b1/tumblr_nqtvm4UiFA1u5mnn7o1_500.gif" alt="Yaaaaaaaaaaas"><br>
+Et maintenant ? Appelez déjà un cobra ? Ensuite pourquoi ne pas ajouter de nouvelles fonctionnalités ? Plusieurs oiseaux qui volent ? Un viseur ? Un temps de recharge à votre arme, des munitions limitées, une musique, des explosions ou de la VR ?</p>
+<p>Voici ci dessous des fonctionalités de ruby qui peuvent vous être utiles, également je vous conseille la <a href="http://www.ruby2d.com/learn/">documentation de ruby2d</a> (en anglais) et internet pour chercher de l’inspiration.</p>
+<h2 id="interagir-avec-le-clavier">Interagir avec le clavier</h2>
+<pre class=" language-ruby"><code class="prism  language-ruby">on <span class="token symbol">:key_down</span> <span class="token keyword">do</span> <span class="token operator">|</span>event<span class="token operator">|</span>   <span class="token comment"># une touche est pressée</span>
+  <span class="token comment"># votre code va ici</span>
+<span class="token keyword">end</span>
+
+</code></pre>
+<p>ou</p>
+<pre class=" language-ruby"><code class="prism  language-ruby">on <span class="token symbol">:key_held</span> <span class="token keyword">do</span> <span class="token operator">|</span>event<span class="token operator">|</span>   <span class="token comment"># une touche est maintenue enfoncée</span>
+  <span class="token comment"># votre code va ici</span>
+<span class="token keyword">end</span>
+
+</code></pre>
+<h2 id="avec-la-souris">Avec la souris</h2>
+<pre class=" language-ruby"><code class="prism  language-ruby">on <span class="token symbol">:mouse_move</span> <span class="token keyword">do</span> <span class="token operator">|</span>event<span class="token operator">|</span> <span class="token comment"># la souris bouge</span>
+  <span class="token comment"># ceci vous imprimera dans le terminal le changement de position effectué</span>
+  puts event<span class="token punctuation">.</span>delta_x
+  puts event<span class="token punctuation">.</span>delta_y
+
+  <span class="token comment"># et ca les coordonées actuelles</span>
+  puts event<span class="token punctuation">.</span>x<span class="token punctuation">,</span> event<span class="token punctuation">.</span>y
+<span class="token keyword">end</span>
+</code></pre>
+<h2 id="utiliser-du-son">Utiliser du son</h2>
+<pre class=" language-ruby"><code class="prism  language-ruby">despacito <span class="token operator">=</span> <span class="token constant">Sound</span><span class="token punctuation">.</span><span class="token keyword">new</span><span class="token punctuation">(</span><span class="token string">'despacito.wav'</span><span class="token punctuation">)</span>
+
+<span class="token comment"># lance la musique despacito</span>
+despacito<span class="token punctuation">.</span>play
+</code></pre>
+<p>Celles là aussi peuvent servir</p>
+<pre><code># met pause (dur à deviner)
+despacito.pause
+
+# remet play (si si je vous jure)
+despacito.play
+
+# coupe la musique et la remet à zéro
+despacito.stop
+
+# fait tourner la musique en boucle
+despacito.loop = true
+
+</code></pre>
+<hr>
+<p><a href="2.html">← Précédent</a> • <a href="index.html">⌂ Menu</a> • <s>Suite →</s></p>
+
+    </div>
+  </div>
+</body>
+
+</html>

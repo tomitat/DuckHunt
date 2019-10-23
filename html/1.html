@@ -1,0 +1,382 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1- Bases du Ruby</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#les-bases-du-ruby">1. Les bases du Ruby</a></li>
+<li><a href="#votre-premier-programme">1.1. Votre premier programme</a>
+<ul>
+<li><a href="#a.-contenu-du-fichier">1.1.a. Contenu du fichier</a></li>
+<li><a href="#b.-explications">1.1.b. Explications</a></li>
+<li><a href="#c.-lancez-votre-programme">1.1.c. Lancez votre programme</a></li>
+</ul>
+</li>
+<li><a href="#les-variables">1.2. Les variables</a>
+<ul>
+<li><a href="#a.-définition">1.2.a. Définition</a></li>
+<li><a href="#b.-exemple">1.2.b. Exemple</a></li>
+<li><a href="#c.-essayez-vous-même-">1.2.c. Essayez vous-même !</a></li>
+</ul>
+</li>
+<li><a href="#opérateurs-sur-les-variables">1.3. Opérateurs sur les variables</a>
+<ul>
+<li><a href="#a.-description-des-opérateurs">1.3.a. Description des opérateurs</a></li>
+<li><a href="#b.-utilisation">1.3.b. Utilisation</a></li>
+</ul>
+</li>
+<li><a href="#vos-propres-fonctions">1.4. Vos propres fonctions</a>
+<ul>
+<li><a href="#a.-définition-1">1.4.a. Définition</a></li>
+<li><a href="#b.-exercice">1.4.b. Exercice</a></li>
+</ul>
+</li>
+<li><a href="#les-boucles-et-les-conditions">1.5. Les boucles et les conditions</a>
+<ul>
+<li><a href="#a.-définition-des-tests-si-sinon-si-sinon">1.5.a. Définition des tests si, sinon si, sinon</a></li>
+<li><a href="#b.-opérateurs-de-comparaison">1.5.b. Opérateurs de comparaison</a></li>
+<li><a href="#c.-exercice-sur-les-conditions">1.5.c. Exercice sur les conditions</a></li>
+<li><a href="#d.-définition-du-test-tant-que">1.5.d. Définition du test tant que</a></li>
+<li><a href="#e.-exercice-sur-les-boucles">1.5.e. Exercice sur les boucles</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="les-bases-du-ruby">1. Les bases du Ruby</h1>
+<p>Cette partie couvre les bases de la programmation en Ruby. Avant de</p>
+<hr>
+<p><a href="0.html">← Précédent</a> • <a href="index.html">⌂ Menu</a> • <a href="2.html">Suite →</a></p>
+<h1 id="votre-premier-programme">1.1. Votre premier programme</h1>
+<p>En Ruby, la constitution minimale d’un programme est très simple. Il suffit d’écrire votre code et il sera exécuté de façon linéaire, de haut en bas.</p>
+<p>Nous allons commencer par afficher un mot ou une phrase sur notre terminal.</p>
+<h2 id="a.-contenu-du-fichier">1.1.a. Contenu du fichier</h2>
+<pre class=" language-rb"><code class="prism  language-rb"><span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"toto"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Copiez le code dans le petit encart et collez-le dans un fichier appelé <code>bases.rb</code>.</p>
+<blockquote>
+<p>Souvenez-vous de la partie précédente : <code>emacs -nw bases.rb</code><br>
+Pensez également à sauvegarder et a quitter l’éditeur.</p>
+</blockquote>
+<p>Vous pouvez modifier le contenu entre guillemets avec le mot ou la phrase de votre choix.</p>
+<h2 id="b.-explications">1.1.b. Explications</h2>
+<p>Ici, nous avons donc une seule et unique ligne de code. Il s’agit d’un <strong>appel de fonction</strong> à une fonction appelée <code>puts</code>.</p>
+<blockquote>
+<p>Traduit en français <code>puts</code> c’est le verbe <strong>mettre</strong> à la troisième personne du singulier.<br>
+Le rôle de la fonction est de <strong>mettre</strong> un mot ou une phrase dans le terminal.</p>
+</blockquote>
+<h2 id="c.-lancez-votre-programme">1.1.c. Lancez votre programme</h2>
+<p>Après avoir compris le code et l’avoir mis dans un fichier, on peut le tester en le lançant.</p>
+<p>Dans votre terminal et en dehors de l’éditeur de code <code>emacs</code>, entrez la commande suivante :</p>
+<pre class=" language-sh"><code class="prism  language-sh">ruby bases.rb
+</code></pre>
+<p>Vous devriez vous votre phrase s’afficher, dans le terminal. Si oui, c’est super ! Vous pouvez passer à la suite.</p>
+<p>Sinon, vous demandez à un cobra de vous aider !</p>
+<h1 id="les-variables">1.2. Les variables</h1>
+<p>Cette partie à pour but de vous faire comprendre le concept des variables. Elles sont essentielles à un programme.</p>
+<h2 id="a.-définition">1.2.a. Définition</h2>
+<p><strong>Qu’est-ce qu’une variable ?</strong></p>
+<p>Une <em>variable</em> est un <em>outil</em> qui permet de <strong>mettre une valeur en mémoire</strong>. On parle aussi de stocker une variable.</p>
+<p>On accède à une variable en l’appelant par le nom que l’on a utilisé pour la déclarer.</p>
+<h2 id="b.-exemple">1.2.b. Exemple</h2>
+<pre class=" language-rb"><code class="prism  language-rb"><span class="token comment"># Déclaration d'une variable nommée "age"</span>
+age <span class="token operator">=</span> <span class="token number">42</span>
+
+<span class="token comment"># On affiche age en y accèdans grace à son nom...</span>
+<span class="token function">puts</span><span class="token punctuation">(</span>age<span class="token punctuation">)</span>
+
+<span class="token comment"># Déclaration d'une variable nommé pizza</span>
+<span class="token comment"># on stocke un phrase dedans</span>
+pizza <span class="token operator">=</span> <span class="token string">"quatre fromage supplément champi"</span>
+
+<span class="token comment"># On l'affiche...</span>
+<span class="token function">puts</span><span class="token punctuation">(</span>pizza<span class="token punctuation">)</span>
+
+<span class="token comment"># Maintenant, je pense que vous avez compris l’idée,</span>
+<span class="token comment"># cette dernière ligne n’est pas difficile à comprendre.</span>
+pi <span class="token operator">=</span> <span class="token number">3.14</span>
+<span class="token function">puts</span><span class="token punctuation">(</span>pi<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="c.-essayez-vous-même-">1.2.c. Essayez vous-même !</h2>
+<blockquote>
+<p>Conseil : si vous n’êtes pas dans votre fichier <code>bases.rb</code>, ouvrez-en un en utilisant <code>emacs -nw main.c</code> comme décrit précédemment.</p>
+</blockquote>
+<hr>
+<p><strong>Énoncé</strong><br>
+Dans votre fichier <code>bases.rb</code> :</p>
+<ul>
+<li>déclarez une variable qui s’appelle  <code>divine_proportion</code> ;</li>
+<li>attribuez lui la valeur : <code>1,61803</code> ;</li>
+<li>affichez la en utilisant un appel à la fonction <code>puts</code>.</li>
+</ul>
+<hr>
+<p><strong>Comment tester ?</strong></p>
+<p>Il suffit de lancer la même commande qu’avant :</p>
+<pre class=" language-sh"><code class="prism  language-sh">ruby bases.rb
+</code></pre>
+<p>Si tout à bien fonctionné, votre programme devrait afficher ceci :</p>
+<pre><code>1,61803
+</code></pre>
+<hr>
+<p><strong>Avez-vous des difficultés ?</strong></p>
+<p>Si oui, demandez de l’aide à un cobra.</p>
+<hr>
+<p><strong>Vous avez fini l’exercice ?</strong></p>
+<p>Si oui, vous êtes libres de :</p>
+<ul>
+<li>demander à un cobra si vous avez correctement effectué l’exercice ;</li>
+<li>passer à la suite.</li>
+</ul>
+<h1 id="opérateurs-sur-les-variables">1.3. Opérateurs sur les variables</h1>
+<p>Maintenant que vous voyez comment vous servir des <strong>variables</strong>, nous allons voir ce que l’on peut faire avec.</p>
+<p>Les opérateurs permettent d’effectuer des opération mathématiques basiques avec des valeurs.</p>
+<h2 id="a.-description-des-opérateurs">1.3.a. Description des opérateurs</h2>
+<p>Les opérateurs que nous allons voir aujourd’hui :</p>
+<ul>
+<li><code>=</code> : assignation,</li>
+<li><code>+</code> : addition,</li>
+<li><code>-</code> : soustraction,</li>
+<li><code>*</code> : multiplication,</li>
+<li><code>/</code> : division,</li>
+<li><code>%</code> : modulo (souvenez-vous de la division euclidienne).</li>
+</ul>
+<p>Ils se comportent comme vous l’imaginez – regardez ci-dessous.</p>
+<h2 id="b.-utilisation">1.3.b. Utilisation</h2>
+<pre class=" language-rb"><code class="prism  language-rb">a <span class="token operator">=</span> <span class="token number">10</span> <span class="token operator">/</span> <span class="token number">3</span><span class="token punctuation">;</span>     <span class="token comment"># a == 3</span>
+b <span class="token operator">=</span> <span class="token number">10</span> <span class="token operator">%</span> a<span class="token punctuation">;</span>     <span class="token comment"># b == 1</span>
+c <span class="token operator">=</span> <span class="token number">10</span> <span class="token operator">+</span> <span class="token number">4</span> <span class="token operator">+</span> b<span class="token punctuation">;</span> <span class="token comment"># c == 15</span>
+d <span class="token operator">=</span> <span class="token number">10</span> <span class="token operator">-</span> <span class="token number">6</span><span class="token punctuation">;</span>     <span class="token comment"># d == 4</span>
+<span class="token comment"># etc...</span>
+</code></pre>
+<blockquote>
+<p>Note : nous allons utiliser les opérateurs dans la partie suivante.</p>
+</blockquote>
+<h1 id="vos-propres-fonctions">1.4. Vos propres fonctions</h1>
+<p>Pour mettre en pratique cette dernière notion, vous devez apprendre comment déclarer et utiliser les fonctions.</p>
+<h2 id="a.-définition-1">1.4.a. Définition</h2>
+<p>Une fonction a pour but <strong>d’effectuer une certaine tâche</strong> grâce à un <strong>ensemble d’instructions</strong>.</p>
+<p>Les fonctions peuvent faire des opérations telles que :</p>
+<ul>
+<li><strong>afficher quelque chose</strong> à l’écran ;</li>
+<li><strong>additionner deux nombres</strong> ensemble et <strong>renvoyer</strong> le résultat de l’addition ;</li>
+<li><em>et bien d’autres choses</em>…</li>
+</ul>
+<hr>
+<p>On considère qu’une fonction :</p>
+<ul>
+<li>peut en <strong>appeler</strong> une autre ;</li>
+<li>peut <strong>s’appeler</strong> elle-même ;</li>
+<li>peut prendre une ou plusieurs valeurs en guise de <strong>paramètres</strong> ;</li>
+<li>peut <strong>renvoyer</strong> une valeur.</li>
+</ul>
+<p>Un <strong>paramètre de fonction</strong> est une valeur qui est envoyée à votre fonction au moment de l’appel.<br>
+Au cœur de la fonction, un <strong>paramètre</strong> s’utilise de la même manière qu’une <strong>variable</strong>.</p>
+<hr>
+<p>Regardons un exemple de fonction simple :</p>
+<pre class=" language-rb"><code class="prism  language-rb"><span class="token keyword">def</span> <span class="token function">print_add</span><span class="token punctuation">(</span>var1<span class="token punctuation">,</span> var2<span class="token punctuation">)</span>
+        var3 <span class="token operator">=</span> var1 <span class="token operator">+</span> var2
+        <span class="token function">puts</span><span class="token punctuation">(</span>var3<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> var3
+<span class="token keyword">end</span>
+</code></pre>
+<p>Le <em>mot clé</em> <code>def</code> sert a indiquer que l’on commence à déclarer une fonction.</p>
+<p>Le <em>mot clé</em> <code>end</code> indique que l’on a fini la déclaration de notre fonction.</p>
+<p>La fonction s’appelle <code>print_add</code> et prend deux paramètres.</p>
+<p>La fonction a trois instructions (elle réalise trois choses) :</p>
+<ul>
+<li>la première ajoute les deux paramètres entre eux ;</li>
+<li>la seconde affiche le résultat de cette addition ;</li>
+<li>la dernière renvoie le résultat.</li>
+</ul>
+<blockquote>
+<p>Lorsque vous écrirez vos propre fonction, vous serez libres de déclarer une fonction qui a zéro, un, deux, trois, ou plus de paramètres.<br>
+Également, vous pouvez les nommer comme vous le souhaitez.<br>
+De même, vous pouvez choisir le type de chaque paramètre.</p>
+</blockquote>
+<hr>
+<p><strong>Comment appeler cette fonction après l’avoir déclarée ?</strong></p>
+<pre class=" language-rb"><code class="prism  language-rb"><span class="token comment"># On déclare la fonction (une seule fois suffit)</span>
+<span class="token keyword">def</span> <span class="token function">print_add</span><span class="token punctuation">(</span>var1<span class="token punctuation">,</span> var2<span class="token punctuation">)</span>
+        var3 <span class="token operator">=</span> var1 <span class="token operator">+</span> var2
+        <span class="token function">puts</span><span class="token punctuation">(</span>var3<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> var3
+<span class="token keyword">end</span>
+
+<span class="token comment"># On l'appelle en écrivant son nom et en précisant les valeurs</span>
+<span class="token comment"># à envoyer en paramètres entre parenthèses.</span>
+<span class="token function">print_add</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token comment"># On peut aussi mettre le résultat (ce qui à été "return")</span>
+<span class="token comment"># de la fonction dans une variable :</span>
+resultat <span class="token operator">=</span> <span class="token function">print_add</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="b.-exercice">1.4.b. Exercice</h2>
+<p><em>C’est maintenant à vous de jouer !</em></p>
+<p><strong>Énoncé</strong></p>
+<p>Ce que vous devez faire : écrire une fonction nommée <code>my_square_nb</code> qui prend un nombre en paramètre et qui renvoie sa valeur mise au carré.</p>
+<hr>
+<p><strong>Comportement attendu</strong></p>
+<p>Ce qui suit est un exemple que vous pouvez utiliser pour tester la fonction que vous devez coder. Vous pouvez ajouter ces lignes à votre fonction main.</p>
+<pre class=" language-rb"><code class="prism  language-rb"><span class="token comment"># On déclare une variable pour stocker le résulat.</span>
+result <span class="token operator">=</span> <span class="token function">my_square_nb</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span>
+<span class="token function">puts</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+<span class="token comment">#  Doit afficher 144.</span>
+
+result <span class="token operator">=</span> <span class="token function">my_square_nb</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token function">puts</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+<span class="token comment"># Doit afficher 4.</span>
+</code></pre>
+<hr>
+<blockquote>
+<p>Si vous êtes en difficulté ou si vous avez des problèmes, appelez un cobra.</p>
+</blockquote>
+<hr>
+<p>Une fois que vous avez fini cet exercice, je vous invite à passer à la suite !</p>
+<hr>
+<p>Si vous n’êtes pas sûr de ce que vous avez produit, vous pouvez demander à un cobra de vous corriger.</p>
+<h1 id="les-boucles-et-les-conditions">1.5. Les boucles et les conditions</h1>
+<p>Dans cette partie, nous allons voir comment fonctionnent les boucles et les conditions.</p>
+<p>On les appelle aussi <strong>structures de contrôle</strong> ou encore <strong>tests</strong>.</p>
+<h2 id="a.-définition-des-tests-si-sinon-si-sinon">1.5.a. Définition des tests si, sinon si, sinon</h2>
+<p>Le test <em>si</em> va vous permettre de soumettre l’exécution d’une partie de votre programme à une condition.</p>
+<p>Pour mieux le comprendre, nous allons étudier sa syntaxe.</p>
+<hr>
+<p><strong>Exemple de condition</strong> <em>if, else if, else</em></p>
+<pre class=" language-ruby"><code class="prism  language-ruby">var <span class="token operator">=</span> <span class="token string">"pichu"</span>
+<span class="token keyword">if</span> var <span class="token operator">==</span> <span class="token string">"raichu"</span>
+	<span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"var est un raichu"</span><span class="token punctuation">)</span>
+<span class="token keyword">elsif</span> var <span class="token operator">==</span> <span class="token string">"pikachu"</span>
+	<span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"var est un pikachu"</span><span class="token punctuation">)</span>
+<span class="token keyword">elsif</span> var <span class="token operator">==</span> <span class="token string">"pichu"</span>
+	<span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"var est un pichu"</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span>
+	<span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"aucune idée"</span><span class="token punctuation">)</span>
+<span class="token keyword">end</span>
+</code></pre>
+<hr>
+<p><strong>Explications</strong></p>
+<p>Dans cet exemple, on remarque de nouveaux mots clés, ils sont :</p>
+<ul>
+<li><em>if</em> : permet de tester le contenu entre parenthèses ;</li>
+<li><em>elsif</em> : si le test précédent a échoué, permet de tester un autre cas ;</li>
+<li><em>else</em> : si tous les tests précédents ont échoué, ses instructions seront exécutées.</li>
+</ul>
+<blockquote>
+<p>Attention : un test <em>elsif</em> ou <em>else</em> <strong>suit toujours</strong> un test <em>if</em>.</p>
+</blockquote>
+<h2 id="b.-opérateurs-de-comparaison">1.5.b. Opérateurs de comparaison</h2>
+<p>L’utilisation de structures de contrôle va souvent de paire avec celle des opérateurs de comparaison.</p>
+<p>Leur utilisation est assez simple, le tout est de ne pas les confondre avec les opérateurs arithmétiques.</p>
+<p><strong>Liste des opérateurs</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Opérateur</th>
+<th>Test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td>Égalité</td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>Différence</td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Infériorité</td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>Infériorité ou égalité</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Supériorité</td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>Supériorité ou égalité</td>
+</tr>
+</tbody>
+</table><h2 id="c.-exercice-sur-les-conditions">1.5.c. Exercice sur les conditions</h2>
+<p><em>A votre tour d’essayer !</em></p>
+<p><strong>Énoncé</strong></p>
+<p>Écrivez une nouvelle fonction nommée <code>is_even</code> qui prend un <code>ìnt</code> en paramètre et qui affiche :</p>
+<ul>
+<li>« le nombre est pair » : <em>si le nombre passé en paramètre est pair</em> ;</li>
+<li>« le nombre est impair » : <em>si le nombre passé en paramètre est impair</em>.</li>
+</ul>
+<blockquote>
+<p>Conseils :</p>
+<ul>
+<li>regardez du côté des opérateurs ;</li>
+<li>utilisez les tests <em>if</em>.</li>
+</ul>
+</blockquote>
+<hr>
+<p>Comme à chaque exercice, je vous conseille de voir avec vos cobras, si vous êtes bloqués.</p>
+<h2 id="d.-définition-du-test-tant-que">1.5.d. Définition du test tant que</h2>
+<p>Les boucles permettent de répéter les mêmes instructions, plusieurs fois à la suite.<br>
+Lorsqu’on écrit une boucle, on doit spécifier une condition.</p>
+<ul>
+<li>Tant que la condition est valide, la boucle continue.</li>
+<li>Si la condition n’est plus valide, la boucle s’arrête.</li>
+</ul>
+<p>En ruby, le test <em>tant que</em> s’appelle <em>while</em>.</p>
+<hr>
+<p><strong>Exemple de boucle</strong></p>
+<pre class=" language-rb"><code class="prism  language-rb"><span class="token comment"># On donne la valeur de 0 à la variable nommée "a".</span>
+a <span class="token operator">=</span> <span class="token number">0</span>
+
+<span class="token comment"># Tant que la valeur de `a` est inférieure à 10...</span>
+<span class="token keyword">while</span> a <span class="token operator">&lt;</span> <span class="token number">10</span>
+	<span class="token function">puts</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+	<span class="token comment"># ... on ajoute 1 à la variable.</span>
+	a <span class="token operator">=</span> a <span class="token operator">+</span> <span class="token number">1</span>
+<span class="token keyword">end</span>
+
+<span class="token comment"># On peut vérifier la valeur :</span>
+<span class="token function">puts</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<p><strong>Explications</strong></p>
+<p>Le code protégé par le test <em>while</em> sera exécuté tant que la condition <code>a &lt; 10</code> est valide.</p>
+<h2 id="e.-exercice-sur-les-boucles">1.5.e. Exercice sur les boucles</h2>
+<p><strong>Ce que vous devez faire :</strong></p>
+<p>Écrivez une fonction nommée <code>multiply</code> qui :</p>
+<ul>
+<li>prend deux nombres en paramètre ;</li>
+<li>les multiplie <strong>sans utiliser le symbole :</strong> <code>*</code> ;</li>
+<li>renvoie le résultat de la multiplication.</li>
+</ul>
+<blockquote>
+<p>La multiplication, ce n’est que des additions en boucle, non ?</p>
+</blockquote>
+<hr>
+<p>Comme d’habitude, en cas de blocage ou de question, faites signes aux cobras.</p>
+<hr>
+<p>Si vous avez réussi : félicitations ! Vous comprenez maintenant le concept des structures de contrôle.</p>
+<hr>
+<p><a href="0.html">← Précédent</a> • <a href="index.html">⌂ Menu</a> • <a href="2.html">Suite →</a></p>
+
+    </div>
+  </div>
+</body>
+
+</html>

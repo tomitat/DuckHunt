@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>0- Preparation</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#espace-de-travail">0. Espace de travail</a>
+<ul>
+<li><a href="#a.-ouvrir-un-terminal">A. Ouvrir un terminal</a></li>
+<li><a href="#b.-afficher-le-contenu-dun-dossier">B. Afficher le contenu d’un dossier</a></li>
+<li><a href="#c.-créer-un-dossier">C. Créer un dossier</a></li>
+<li><a href="#d.-accéder-à-un-dossier">D. Accéder à un dossier</a></li>
+<li><a href="#e-.-éditer-des-fichiers-sources">E . Éditer des fichiers sources</a></li>
+<li><a href="#f.-télécharger-un-fichier-dans-votre-dossier">F. Télécharger un fichier dans votre dossier</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="espace-de-travail">0. Espace de travail</h1>
+<p>Dans cette partie, nous allons voir ensemble comment vous préparer à coder, pour pouvoir réaliser la suite du sujet sans pépins.</p>
+<p>Pour ce faire, je vais vous montrer comment :</p>
+<ul>
+<li>ouvrir un terminal</li>
+<li>afficher le contenu d’un dossier</li>
+<li>créer un dossier</li>
+<li>accéder à ce dossier</li>
+<li>créer un fichier</li>
+</ul>
+<hr>
+<p><s>← Précédent</s> • <a href="index.html">⌂ Menu</a> • <a href="1.html">Suite →</a></p>
+<h2 id="a.-ouvrir-un-terminal">A. Ouvrir un terminal</h2>
+<p>Pour ouvrir un terminal, appuyez simultanément sur les touches <code>Ctrl + Alt + T</code>.<br>
+Une fenêtre noire devrait apparaître.<br>
+Il doit y avoir, à l’intérieur, une ligne se finissant par un symbole comme “$”.<br>
+Cette ligne s’appelle le prompt, elle indique que le terminal que vous venez d’ouvrir est prêt à recevoir des commandes.</p>
+<blockquote>
+<p>Exemple de prompt :<br>
+<img src="http://paris-coding.club/subject/TD-doodle/images/exemple_prompt.png" alt="exemple prompt" height="100"></p>
+</blockquote>
+<h2 id="b.-afficher-le-contenu-dun-dossier">B. Afficher le contenu d’un dossier</h2>
+<p>Maintenant que votre terminal est ouvert, vous allez pouvoir lancer votre première commande.</p>
+<p>Lorsque l’on veut consulter le contenu d’un dossier, on utilise la commande <code>ls</code>.<br>
+Entrez dans votre terminal :</p>
+<pre class=" language-sh"><code class="prism  language-sh">ls
+</code></pre>
+<p>Puis confirmez votre commande en appuyant sur la touche <code>Entrée</code>.</p>
+<blockquote>
+<p>Exemple de sortie de la commande <code>ls</code> :<br>
+<img src="http://paris-coding.club/subject/TD-doodle/images/exemple_ls.png" alt="exemple ls" title="Exemple du résulat de ls"></p>
+</blockquote>
+<h2 id="c.-créer-un-dossier">C. Créer un dossier</h2>
+<p>Pour créer un dossier, on utilise la commande <code>mkdir</code>.<br>
+Entrez dans votre terminal :</p>
+<pre class=" language-sh"><code class="prism  language-sh">mkdir coding
+</code></pre>
+<blockquote>
+<p>Elle va avoir pour effet de créer un dossier – aussi appelé répertoire – nommé « coding ».<br>
+En changeant le mot qui suit <code>mkdir</code> vous pouvez créer un répertoire du nom de votre choix !</p>
+</blockquote>
+<h2 id="d.-accéder-à-un-dossier">D. Accéder à un dossier</h2>
+<p>Créer un dossier, c’est bien, y accéder, c’est mieux !<br>
+La commande pour changer de répertoire est <code>cd</code>.</p>
+<p>En suivant la logique précédente, vous pouvez accéder à votre dossier en tapant la commande suivante :</p>
+<pre class=" language-sh"><code class="prism  language-sh">cd coding
+</code></pre>
+<blockquote>
+<p>De la même façon qu’avec la commande <code>mkdir</code>, vous pouvez changer le nom de dossier que vous précisez derrière <code>cd</code>, afin de vous rendre dans un autre répertoire existant.</p>
+</blockquote>
+<p>Voilà ! C’est tout ce dont vous avez besoin de savoir pour lancer une commande dans un terminal, créer un dossier et y accéder.</p>
+<p><strong>Un problème ? Faites-moi plaisir, appelez un cobra : ne restez pas bloqué !</strong></p>
+<h2 id="e-.-éditer-des-fichiers-sources">E . Éditer des fichiers sources</h2>
+<h3 id="créer-un-fichier-avec-emacs">Créer un fichier avec emacs</h3>
+<p>La commande pour créer un nouveau fichier ou pour accéder à un fichier existant est la même. La voici :</p>
+<pre class=" language-sh"><code class="prism  language-sh">emacs -nw nom_de_votre_fichier
+</code></pre>
+<p>Utilisez-la pour créer un fichier nommé <code>toto.txt</code> en entrant <code>emacs -nw toto.txt</code> dans votre terminal.</p>
+<blockquote>
+<p>Cette procédure vous sera utile à chaque fois que vous voudrez créer un fichier.<br>
+Si, plus tard dans le sujet, vous avez besoin de créer ou d’ouvrir un fichier, je vous conseille de suivre à nouveau ces instructions.</p>
+</blockquote>
+<h3 id="écrire-dans-emacs">Écrire dans emacs</h3>
+<p>Maintenant que emacs est ouvert, vous pouvez écrire dans votre fichier en utilisant votre clavier.</p>
+<p>Écrivez par exemple le nom de votre plat préféré puis passez à l’étape suivante pour sauvegarder et quitter.</p>
+<h3 id="sauvegarder-et-quitter">Sauvegarder et quitter</h3>
+<p>Maintenant, vous devez sauvegarder votre code et quitter l’éditeur en utilisant les raccourcis clavier suivants :</p>
+<ul>
+<li><code>ctrl + x</code> suivi de <code>ctrl + s</code> pour sauvegarder</li>
+<li><code>ctrl + x</code> suivi de <code>ctrl + c</code> pour quitter</li>
+</ul>
+<blockquote>
+<p>Au début, cela peut paraître compliqué. Mais n’ayez crainte, vous prendrez l’habitude.<br>
+Si vous avez un soucis avec ces raccourcis, demandez de l’aide à un cobra.</p>
+</blockquote>
+<h2 id="f.-télécharger-un-fichier-dans-votre-dossier">F. Télécharger un fichier dans votre dossier</h2>
+<p>A plusieurs reprises dans le sujet, vous allez être amenés à télécharger des fichiers.</p>
+<p>Voici la procédure à suivre afin d’y parvenir.</p>
+<hr>
+<p>Lorsque vous cliquez sur <code>save target as</code> ou sur <code>télécharger la cible sous</code> dans Firefox : une fenêtre d’enregistrement devrai apparaître pour vous demander ou placer le nouveau fichier.<br>
+Pour enregistrer votre fichier dans le dossier <code>coding</code> créé plus tôt :</p>
+<ul>
+<li><strong>appuyez</strong> sur <code>Home</code> <em>sur la barre latérale de gauche</em> ;</li>
+<li><strong>double-cliquez</strong> sur <code>coding</code> ;</li>
+<li><strong>validez</strong> en appuyant sur <code>Save</code> <em>en haut à droite</em>.</li>
+</ul>
+<p><img src="http://paris-coding.club/subject/TD-doodle/images/exemple_telechargement.png" alt="exemple telechargement" title="Exemple téléchargement"></p>
+<hr>
+<p><strong>Pour vérifier</strong> dans un terminal, après avoir préalablement fait <code>cd coding</code>, faites <code>ls</code>.</p>
+<p>Vous deviez voir un nouveau fichier s’afficher, comme ceci (dans l’exemple le fichier s’appelle “<a href="http://gfx.py">gfx.py</a>” et il est bien apparu) :<br>
+<img src="http://paris-coding.club/subject/TD-doodle/images/exemple_fichier_dl.png" alt="exemple fichier dl" title="Exemple téléchargement"></p>
+<hr>
+<p><em>Fin de partie</em></p>
+<p><s>← Précédent</s> • <a href="index.html">⌂ Menu</a> • <a href="1.html">Suite →</a></p>
+
+    </div>
+  </div>
+</body>
+
+</html>

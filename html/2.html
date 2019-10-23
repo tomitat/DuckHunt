@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2- Les bases de Ruby2D</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#les-bases-de-ruby2d">2. Les bases de Ruby2D</a></li>
+<li><a href="#ouvrir-une-fenêtre">2.1. Ouvrir une fenêtre</a></li>
+<li><a href="#un-vent-de-fraîcheur-dans-la-fenêtre">2.2. Un vent de fraîcheur dans la fenêtre</a>
+<ul>
+<li><a href="#a.-une-couleur-comme-fond-décran">2.2.a. Une couleur comme fond d’écran</a></li>
+<li><a href="#b.-une-image-en-fond-décran">2.2.b. Une Image en fond d’écran</a></li>
+</ul>
+</li>
+<li><a href="#il-bat-des-ailes--limage-est-animée">2.3. Il bat des ailes ! L’image est animée</a></li>
+<li><a href="#il-nous-faut-un-pigeon-">2.3. Il nous faut un pigeon !</a></li>
+<li><a href="#ajouter-du-texte">2.4. Ajouter du texte</a></li>
+<li><a href="#finition">2.5. Finition</a></li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="les-bases-de-ruby2d">2. Les bases de Ruby2D</h1>
+<p>Ruby2D est le nom de la bibliothèque graphique que nous allons utiliser pour réaliser ce projet.</p>
+<p>Nous allons commencer par vous expliquer comment ouvrir une fenêtre puis comment afficher des choses à l’écran.</p>
+<blockquote>
+<p>Note aux cobras : le sujet à été modifié pour ruby2d 0.5.1 et a été originalement pensé pour la version 0.8.1.</p>
+</blockquote>
+<hr>
+<p><a href="1.html">← Précédent</a> • <a href="index.html">⌂ Menu</a> • <a href="3.html">Suite →</a></p>
+<h1 id="ouvrir-une-fenêtre">2.1. Ouvrir une fenêtre</h1>
+<p>Pour ouvrir une fenêtre, et de manière générale pour utiliser des outils graphiques en Ruby, il vous faut ajouter <strong>Ruby2d</strong> qui est la librairie graphique que nous utilisons. Pour cela, <strong>ajoutez</strong> tout en haut de votre code :</p>
+<pre class=" language-rb"><code class="prism  language-rb"><span class="token keyword">require</span> <span class="token string">'ruby2d'</span>
+</code></pre>
+<p>Vous devrez le faire pour chaque nouveau fichier que vous créerez et qui utilisera Ruby2d.</p>
+<hr>
+<p>Revenons en au fait ! Créons notre première fenêtre. Tout d’abord, nous devons définir la taille et le titre de notre fenêtre. On va la faire la plus grande possible, pour vos écrans c’est une résolution de 1280 x 720. <strong>Rajoutez</strong> donc ceci dans votre code :</p>
+<pre class=" language-rb"><code class="prism  language-rb">set width<span class="token punctuation">:</span> <span class="token number">1280</span> <span class="token comment"># On définit la largeur à 1280 Pixels</span>
+set height<span class="token punctuation">:</span> <span class="token number">720</span> <span class="token comment"># Ici on définit la hauteur à 720 Pixels</span>
+set title<span class="token punctuation">:</span> <span class="token string">"Coding Club @ Paris"</span> <span class="token comment"># Et là on met juste un titre à notre fenêtre :p</span>
+show
+</code></pre>
+<p>Si vous exécutez ceci vous verrez votre première fenêtre qui apparaît sous vos yeux. Malheureusement cette fenêtre est vide, il faudrait la remplir un peu en mettant un <code>background</code> par exemple.</p>
+<p>Si jamais votre fenêtre ne s’affiche pas ou qu’il y une erreur, n’hésitez pas à faire appel aux <strong>Cobras</strong> !</p>
+<h1 id="un-vent-de-fraîcheur-dans-la-fenêtre">2.2. Un vent de fraîcheur dans la fenêtre</h1>
+<h2 id="a.-une-couleur-comme-fond-décran">2.2.a. Une couleur comme fond d’écran</h2>
+<p>Votre fenêtre est basique, trop basique. Un fond d’écran (ou <code>background</code>) noir c’est un peu dépassé, vous ne trouvez pas ?<br>
+C’est pourquoi je vous propose de rajoutez un peu de couleur dans votre fenêtre. Pour cela, <strong>rajoutez</strong> cette ligne juste avant <code>show</code> dans votre programme :</p>
+<pre class=" language-rb"><code class="prism  language-rb">set background<span class="token punctuation">:</span> <span class="token string">"blue"</span>
+</code></pre>
+<p>Exécutez et hop ! Vous avez un <code>background</code> bleu.</p>
+<blockquote>
+<p>Vous pouvez remplacer <code>blue</code> par d’autre couleur, en voici une liste non exhaustive :<br>
+<code>navy</code>, <code>blue</code>, <code>aqua</code>, <code>green</code>, <code>yellow</code>, <code>orange</code>, <code>red</code>, <code>brown</code>, <code>fuschia</code>, <code>purple</code>, <code>white</code> et bien d’autre.<br>
+Vous pouvez aussi essayer de mettre <code>random</code> à la place de <code>blue</code> ça pourrait avoir des effets assez drôles par la suite du sujet si vous décider de le laisser.</p>
+</blockquote>
+<p>Bon j’en conviens, une fenêtre avec un fond d’écran coloré c’est pas beaucoup plus passionnant. C’est pour ça qu’on va préférer mettre une image !</p>
+<h2 id="b.-une-image-en-fond-décran">2.2.b. Une Image en fond d’écran</h2>
+<p>Là ça commence à devenir intéressant, on va apprendre à afficher une image dans votre fenêtre à partir d’un fichier.<br>
+Commencez d’abord par télécharger un fond d’écran sur internet de la même taille que la fenêtre (1280 x 720) puis déplacez la dans le même dossier que votre programme.<br>
+Si vous ne savez pas comment faire, <strong>demandez à un Cobra</strong> !</p>
+<hr>
+<p>Une fois que vous avez votre image, vous pouvez la rajoutez dans votre fenêtre, pour cela <strong>rajoutez</strong> ceci à la place de <code>set background</code> :</p>
+<pre class=" language-rb"><code class="prism  language-rb">background <span class="token operator">=</span> <span class="token string">'background.jpg'</span> <span class="token comment"># Correspond au nom de fichier de votre image téléchargée</span>
+<span class="token constant">Image</span><span class="token punctuation">.</span><span class="token keyword">new</span><span class="token punctuation">(</span>path<span class="token punctuation">:</span> background<span class="token punctuation">,</span> x<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Et vous voilà maintenant avec une image comme fond d’écran de votre jeu, mais ce n’est que le début. Nous allons rajouter d’autre objets dans notre fenêtre qui nous permettrons de continuer.</p>
+<h1 id="il-bat-des-ailes--limage-est-animée"><s>2.3. Il bat des ailes ! L’image est animée</s></h1>
+<p><em>Section supprimée pour problèmes logistiques</em></p>
+<h1 id="il-nous-faut-un-pigeon-">2.3. Il nous faut un pigeon !</h1>
+<p>Dans notre jeu de tir, nous avons besoin de tirer sur un oiseau. Il vous faut donc chercher une image de pigeon ou de votre oiseau favori sur internet, la télécharger et la sauvegarder dans votre dossier de travail.</p>
+<p>Une fois cela fait : ajouter l’oiseau dans votre fenêtre en utilisant <code>Image.new</code>…</p>
+<h1 id="ajouter-du-texte">2.4. Ajouter du texte</h1>
+<p>Maintenant que je vous ai appris les fondamentaux de Ruby2d, pour parfaire votre futur jeu je vais vous aider à afficher du texte. Mais je vais je ne vais faire que vous donner les clés pour en créer un, vous vous en servirez que plus tard dans votre jeu.</p>
+<hr>
+<p>Pour commencer, on crée un texte de la même manière qu’une image ou un sprite :</p>
+<pre class=" language-rb"><code class="prism  language-rb"><span class="token constant">Text</span><span class="token punctuation">.</span><span class="token keyword">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Dans les parenthèses, nous devons renseigner plusieurs informations à notre texte. En voici la liste dans l’ordre :</p>
+<pre class=" language-rb"><code class="prism  language-rb">var_de_texte <span class="token operator">=</span> <span class="token constant">Text</span><span class="token punctuation">.</span><span class="token keyword">new</span><span class="token punctuation">(</span>
+	text<span class="token punctuation">:</span> <span class="token string">'Mon texte à afficher'</span><span class="token punctuation">,</span>
+	x<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+	y<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+	size<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+	color<span class="token punctuation">:</span> <span class="token string">'black'</span><span class="token punctuation">,</span>
+	font<span class="token punctuation">:</span> <span class="token string">'/usr/share/fonts/truetype/Nakula/nakula.ttf'</span>
+<span class="token punctuation">)</span>
+</code></pre>
+<blockquote>
+<p>Éviter de changer la fonte, sinon, vous risquez d’avoir une erreur !</p>
+</blockquote>
+<p><strong>ATTENTION !</strong> Il est <strong>très</strong> important que vous respectiez cet ordre d’affichage pour le texte sinon votre programme ne fonctionnera pas !</p>
+<h1 id="finition">2.5. Finition</h1>
+<p>Si vous assemblez tout ce que je vous ai appris jusque là vous devriez tomber sur quelque chose qui ressemble à ceci :</p>
+<p><img src="http://paris-coding.club/subject/duck-hunt/images/aper%C3%A7u_r%C3%A9sultat.png" alt="Apercu résulat"></p>
+<hr>
+<p>Et voilà, j’ai fini de vous apprendre les bases ainsi que tout ce que vous avez besoin de savoir sur <strong>Ruby2d</strong> pour créer votre <em>Shoot the duck</em>. si jamais à un moment vous avez un petit trou de mémoire, n’hésitez pas à faire appel aux <strong>Cobras</strong> et à revenir sur cette page.</p>
+<hr>
+<p><em>Fin de section</em></p>
+<hr>
+<p><a href="1.html">← Précédent</a> • <a href="index.html">⌂ Menu</a> • <a href="3.html">Suite →</a></p>
+
+    </div>
+  </div>
+</body>
+
+</html>
